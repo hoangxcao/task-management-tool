@@ -1,0 +1,21 @@
+fa-icon {
+  margin: 5px;
+  cursor: pointer;
+}
+
+button {
+  margin: 10px;
+}
+
+table {
+  width: 100%;
+}
+
+th.mat-sort-header-sorted {
+  color: black;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}

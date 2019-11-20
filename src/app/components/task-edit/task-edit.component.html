@@ -1,0 +1,70 @@
+<alert></alert>
+<div class="container">
+  <div class="col-md-12">
+    <h3 class="mb-3 text-center">Update Task</h3>
+
+    <form *ngIf="editTaskForm" [formGroup]="editTaskForm" (ngSubmit)="updateTask()">
+      <div class="form-group">
+        <select formControlName="Status" class="form-control" placeholder="Status"
+          [ngClass]="{ 'is-invalid': submitted && f.Status.errors }">
+          <option value="Open">Open</option>
+          <option value="Closed">Closed</option>
+        </select>
+        <div *ngIf="submitted && f.Status.errors" class="invalid-feedback">
+          <div *ngIf="f.Status.errors.required">Status is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="Quote" class="form-control" placeholder="Quote" />
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="QuoteType" class="form-control" placeholder="Quote Type"
+          [ngClass]="{ 'is-invalid': submitted && f.QuoteType.errors }" />
+        <div *ngIf="submitted && f.QuoteType.errors" class="invalid-feedback">
+          <div *ngIf="f.QuoteType.errors.required">Quote Type is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="Contact" class="form-control" placeholder="Contact"
+          [ngClass]="{ 'is-invalid': submitted && f.Contact.errors }" />
+        <div *ngIf="submitted && f.Contact.errors" class="invalid-feedback">
+          <div *ngIf="f.Contact.errors.required">Contact is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="TaskType" class="form-control" placeholder="Task Type"
+          [ngClass]="{ 'is-invalid': submitted && f.TaskType.errors }" />
+        <div *ngIf="submitted && f.TaskType.errors" class="invalid-feedback">
+          <div *ngIf="f.TaskType.errors.required">Task Type is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="text" formControlName="TaskDescription" class="form-control" placeholder="Task Description"
+          [ngClass]="{ 'is-invalid': submitted && f.TaskDescription.errors }" />
+        <div *ngIf="submitted && f.TaskDescription.errors" class="invalid-feedback">
+          <div *ngIf="f.TaskDescription.errors.required">Task Description is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <input type="datetime-local" formControlName="DueDate" class="form-control" placeholder="Due Date"
+          [ngClass]="{ 'is-invalid': submitted && f.DueDate.errors }" />
+        <div *ngIf="submitted && f.DueDate.errors" class="invalid-feedback">
+          <div *ngIf="f.DueDate.errors.required">Due Date is required</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button type="submit" class="btn btn-success btn-lg btn-block">
+          Update Task
+        </button>
+      </div>
+    </form>
+
+  </div>
+</div>

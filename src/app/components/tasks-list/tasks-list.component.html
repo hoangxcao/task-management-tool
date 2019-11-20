@@ -1,0 +1,72 @@
+<div class="container custom-container-2">
+
+  <!-- Tasks list table -->
+  <h3 class="mb-3 text-center">Tasks List</h3>
+
+  <div class="text-right">
+    <button class="btn btn-info" routerLink="/add-task">
+      <fa-icon [icon]="faList" class="add"></fa-icon>Add Task
+    </button>
+  </div>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Search">
+  </mat-form-field>
+
+  <div class="mat-elevation-z8">
+    <table mat-table [dataSource]="dataSource" matSort>
+
+      <!-- Quote Number Column -->
+      <ng-container matColumnDef="QuoteNumber">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quote Number </th>
+        <td mat-cell *matCellDef="let task"> {{task.QuoteNumber}} </td>
+      </ng-container>
+
+      <!-- Quote Type Column -->
+      <ng-container matColumnDef="QuoteType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quote Type </th>
+        <td mat-cell *matCellDef="let task"> {{task.QuoteType}} </td>
+      </ng-container>
+
+      <!-- Contact Column -->
+      <ng-container matColumnDef="Contact">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Contact </th>
+        <td mat-cell *matCellDef="let task"> {{task.Contact}} </td>
+      </ng-container>
+
+      <!-- Task Description Column -->
+      <ng-container matColumnDef="TaskDescription">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Description </th>
+        <td mat-cell *matCellDef="let task"> {{task.TaskDescription}} </td>
+      </ng-container>
+
+      <!-- Task Type Column -->
+      <ng-container matColumnDef="TaskType">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Task Type </th>
+        <td mat-cell *matCellDef="let task"> {{task.TaskType}} </td>
+      </ng-container>
+
+      <!-- Due Date Column -->
+      <ng-container matColumnDef="DueDate">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Due Date </th>
+        <td mat-cell *matCellDef="let task"> {{task.DueDate}} </td>
+      </ng-container>
+
+      <!-- Action Column -->
+      <ng-container matColumnDef="Action">
+        <th mat-header-cell *matHeaderCellDef> Action </th>
+        <td mat-cell *matCellDef="let task">
+          <fa-icon [icon]="faEye" class="details" (click)="openDialog(task.QuoteNumber)"></fa-icon>
+          <fa-icon [icon]="faEdit" class="edit" routerLink="/edit-task/{{task.QuoteNumber}}"></fa-icon>
+          <fa-icon [icon]="faTrash" class="delete" (click)="deleteTask(task.QuoteNumber)"></fa-icon>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]" showFirstLastButtons></mat-paginator>
+  </div>
+
+</div>
