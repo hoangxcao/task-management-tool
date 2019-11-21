@@ -46,7 +46,7 @@ export class RestApiService {
 
   // HttpClient API post() method => Create task
   createTask(task): Observable<Task> {
-    return this.http.post<Task>(this.apiURL + '/api//Tasks', JSON.stringify(task), this.httpOptions)
+    return this.http.post<Task>(this.apiURL + '/api/Tasks', JSON.stringify(task), this.httpOptions)
       .pipe(
         retry(1),
         catchError(this.handleError)
