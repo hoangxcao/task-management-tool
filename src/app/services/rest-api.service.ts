@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 export class RestApiService {
 
   // Define API
-  apiURL = 'http://localhost:44312';
+  apiURL = 'taskmanagementtool-prod.us-east-2.elasticbeanstalk.com';
 
   constructor(private http: HttpClient) { }
 

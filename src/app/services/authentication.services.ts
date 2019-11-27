@@ -12,7 +12,7 @@ import { User } from '../models/user';
 export class AuthenticationService {
 
   // Define API
-  apiURL = 'http://localhost:44312';
+  apiURL = 'taskmanagementtool-prod.us-east-2.elasticbeanstalk.com';
 
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
