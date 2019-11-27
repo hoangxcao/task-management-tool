@@ -10,7 +10,7 @@ import { User } from '../models/user';
 export class UserService {
 
   // Define API
-  apiURL = 'taskmanagementtool-prod.us-east-2.elasticbeanstalk.com';
+  apiURL = 'http://localhost:44312';
 
   constructor(private http: HttpClient) { }
 
